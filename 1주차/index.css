@@ -1,0 +1,24 @@
+.calender {
+  margin-top: 1rem;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+}
+
+.main {
+  margin-top: 1rem;
+  display: flex;
+}
+
+.days {
+  display: flex;
+}
+
+.day {
+  display: inline;
+  margin-right: 1rem;
+}
