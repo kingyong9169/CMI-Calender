@@ -1,5 +1,15 @@
+:root {
+  --bg: #f6f6ef; /*배경색*/
+  --line: #aaaaaa; /*상단과 하단을 나눠줄 줄 색*/
+  --sat: #8282ff; /*토요일 배경색*/
+  --sun: #ff88a7; /*일요일 배경색*/
+  --today: #ffb900; /*오늘 날짜의 테투리색*/
+  --font: "Gill Sans", sans-serif; /*폰트 정의*/
+}
+
 .calender {
-  font-size: 1.5rem;
+  font-family: var(--font);
+  font-size: 1.3rem;
   margin-top: 1rem;
   align-items: center;
   display: flex;
@@ -11,6 +21,11 @@
   display: flex;
 }
 
+.title {
+  text-align: center;
+  width: 8rem;
+  margin: auto 3rem;
+}
 .year {
   display: inline;
   margin-left: 0.3rem;
@@ -22,6 +37,7 @@
 }
 
 .main {
+  background-color: var(--bg);
   width: 40rem;
   margin-top: 1rem;
   display: flex;
@@ -29,8 +45,9 @@
 }
 
 .days {
+  padding: auto;
   height: 3.5rem;
-  border-bottom: 2px solid black;
+  border-bottom: 2px solid var(--line);
   text-align: center;
   display: flex;
   flex-wrap: wrap;
@@ -38,36 +55,57 @@
 }
 
 .day {
-  margin: 1rem 0;
-  margin: auto;
+  padding: 1rem;
+  margin: 0;
+  width: calc(100% / 7);
   display: inline;
+  box-sizing: border-box;
+  border-right: 1px solid var(--line);
+  border-top: 1px solid var(--line);
 }
 
 .dates {
   width: 100%;
-  margin: 1rem 0;
   display: flex;
   flex-wrap: wrap;
 }
 
 .date {
-  margin-top: 0.5rem;
+  padding: 1rem 0;
   width: calc(100% / 7);
   text-align: center;
   box-sizing: border-box;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
 }
 
 .date:nth-child(7n),
 .day:nth-child(7n) {
-  color: blue;
+  color: var(--sat);
 }
 
 .date:nth-child(7n + 1),
 .day:nth-child(7n + 1) {
-  color: red;
+  color: var(--sun);
+  border-left: 1px solid var(--line);
 }
 
 .today {
-  border: 2px solid orange;
-  background-color: orange;
+  border: 2px solid var(--today);
+  background-origin: border-box;
+  background-color: var(--today);
+}
+
+.prev,
+.next {
+  padding: auto;
+  font-size: 2rem;
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+.prevMonth,
+.nextMonth {
+  color: var(--line) !important;
 }
