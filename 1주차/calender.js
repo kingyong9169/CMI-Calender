@@ -9,10 +9,13 @@ function buildCalender() {
   document.querySelector(".month").innerHTML = curDate.getMonth() + 1 + "월"; // month클래스를 갖고 있는 첫번째 html요소의 컨텐츠를 선택하여 이번달로 바꾼다.
 
   let dates = [];
+  let prevCount = 0;
+  let nextCount = 0;
   if (curFirst.getDay() != 0) {
     // 이번달 1일이 일요일이 아니면
     for (let i = 0; i < curFirst.getDay(); i++) {
       dates.unshift(prevLast.getDate() - i); // 지난달의 말일에서 i를 빼면서 달력을 채운다.
+      prevCount += 1;
     }
   }
   for (let i = 1; i <= curLast.getDate(); i++) {
@@ -22,9 +25,14 @@ function buildCalender() {
   for (let i = 1; i <= 6 - curLast.getDay(); i++) {
     // 달력에 35일에 맞게 다음 달의 날짜를 가져온다.
     dates.push(i);
+    nextCount += 1;
   }
   let htmlDates = "";
-  for (let i = 0; i < 35; i++) {
+
+  for (let i = 0; i < prevCount; i++) {
+    htmlDates += `<div class="date prevMonth">${dates[i]}</div>`;
+  }
+  for (let i = prevCount; i < 35 - prevCount - nextCount; i++) {
     if (
       today.getDate() == dates[i] &&
       today.getMonth() == curDate.getMonth() &&
@@ -34,6 +42,9 @@ function buildCalender() {
     } else {
       htmlDates += `<div class="date">${dates[i]}</div>`;
     }
+  }
+  for (let i = 35 - prevCount - nextCount; i < 35; i++) {
+    htmlDates += `<div class="date nextMonth">${dates[i]}</div>`;
   }
   document.querySelector(".dates").innerHTML = htmlDates;
 }
