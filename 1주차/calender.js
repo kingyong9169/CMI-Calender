@@ -25,4 +25,17 @@ function buildCalender() {
   for (let i = 1; i <= 6 - curLast.getDay(); i++) { // 달력에 35일에 맞게 다음 달의 날짜를 가져온다. 
     dates.push(i);
   }
+  let htmlDates = "";
+  for (let i = 0; i < 35; i++) {
+    if (
+      today.getDate() == dates[i] &&
+      today.getMonth() == curDate.getMonth() &&
+      today.getFullYear() == curDate.getFullYear()
+    ) {
+      htmlDates += `<div class="date today">${dates[i]}</div>`;
+    } else {
+      htmlDates += `<div class="date">${dates[i]}</div>`;
+    }
+  }
+  document.querySelector(".dates").innerHTML = htmlDates;
 }
