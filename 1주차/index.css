@@ -9,23 +9,39 @@
   display: flex;
 }
 
+.year {
+  display: inline;
+  margin-left: 0.3rem;
+}
+
+.month {
+  display: inline;
+  margin-right: 0.3rem;
+}
+
 .main {
   margin-top: 1rem;
   display: flex;
+  flex-direction: column;
 }
 
 .days {
+  text-align: center;
   display: flex;
+  flex-wrap: wrap;
 }
 
 .day {
+  margin: 0.5rem auto;
   display: inline;
-  margin-right: 1rem;
 }
 
 .dates {
-  display: block;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .date {
+  width: calc(100% / 7);
+  text-align: center;
 }
