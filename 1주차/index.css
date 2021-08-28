@@ -4,7 +4,7 @@
   --sat: #8282ff; /*토요일 배경색*/
   --sun: #ff88a7; /*일요일 배경색*/
   --today: #ffb900; /*오늘 날짜의 테투리색*/
-  --font: "Gill Sans", sans-serif; /*폰트 정의*/
+  --font: "Lobster", cursive; /*폰트 정의*/
 }
 
 body {
@@ -30,7 +30,7 @@ body {
   color: var(--bg);
   text-align: center;
   width: 8rem;
-  margin: auto 3rem;
+  margin: auto 2rem;
 }
 .year {
   display: inline;
