@@ -104,7 +104,6 @@ body {
 }
 
 .today {
-  border: 2px solid var(--today);
   background-origin: border-box;
   background-color: var(--today);
 }
