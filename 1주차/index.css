@@ -7,6 +7,9 @@
   --font: "Gill Sans", sans-serif; /*폰트 정의*/
 }
 
+body {
+  background-color: #c1aeee;
+}
 .calender {
   top: 50%;
   transform: translateY(50%);
@@ -24,6 +27,7 @@
 }
 
 .title {
+  color: var(--bg);
   text-align: center;
   width: 8rem;
   margin: auto 3rem;
@@ -100,6 +104,7 @@
 
 .prev,
 .next {
+  color: var(--bg);
   padding: auto;
   font-size: 2rem;
   border: none;
