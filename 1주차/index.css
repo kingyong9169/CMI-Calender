@@ -8,6 +8,8 @@
 }
 
 .calender {
+  top: 50%;
+  transform: translateY(50%);
   font-family: var(--font);
   font-size: 1.3rem;
   margin-top: 1rem;
