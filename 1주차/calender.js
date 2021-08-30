@@ -47,7 +47,7 @@ function buildCalender() {
   let htmlDates = "";
 
   for (let i = 0; i < prevCount; i++) {
-    htmlDates += `<div class="date prevMonth">${dates[i]}</div>`;
+    htmlDates += `<li class="date prevMonth">${dates[i]}</li>`;
   }
   for (let i = prevCount; i < DISPLAYNUM - nextCount; i++) {
     if (
@@ -55,13 +55,13 @@ function buildCalender() {
       today.getMonth() == curDate.getMonth() &&
       today.getFullYear() == curDate.getFullYear()
     ) {
-      htmlDates += `<div class="date today">${dates[i]}</div>`;
+      htmlDates += `<li class="date today">${dates[i]}</li>`;
     } else {
-      htmlDates += `<div class="date">${dates[i]}</div>`;
+      htmlDates += `<li class="date">${dates[i]}</li>`;
     }
   }
   for (let i = DISPLAYNUM - nextCount; i < DISPLAYNUM; i++) {
-    htmlDates += `<div class="date nextMonth">${dates[i]}</div>`;
+    htmlDates += `<li class="date nextMonth">${dates[i]}</li>`;
   }
   document.querySelector(".dates").innerHTML = htmlDates;
 }
