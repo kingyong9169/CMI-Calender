@@ -1,6 +1,6 @@
 # CMI 스터디 과제 모음집
 
-과제 포트폴리오 [Go!](https://kingyong9169.github.io/CMI-study/index.html)
+과제 포트폴리오 [Go!](https://kingyong9169.github.io/CMI-study/)
 
 ## 목차
 
