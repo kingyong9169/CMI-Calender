@@ -1,4 +1,4 @@
-const DISPLAYNUM = 35;
+const DISPLAYNUM = 42;
 let curDate = new Date();
 let today = new Date();
 buildCalender();
@@ -38,17 +38,18 @@ function buildCalender() {
     // 이번 달의 말일의 요일을 센다
     dates.push(i);
   }
-  for (let i = 1; i <= 6 - curLast.getDay(); i++) {
-    // 달력에 35일에 맞게 다음 달의 날짜를 가져온다.
+  for (let i = 1; i <= DISPLAYNUM - prevCount - curLast.getDate(); i++) {
+    // 달력에 42일에 맞게 다음 달의 날짜를 가져온다.
     dates.push(i);
     nextCount += 1;
   }
+
   let htmlDates = "";
 
   for (let i = 0; i < prevCount; i++) {
     htmlDates += `<div class="date prevMonth">${dates[i]}</div>`;
   }
-  for (let i = prevCount; i < DISPLAYNUM - prevCount - nextCount; i++) {
+  for (let i = prevCount; i < DISPLAYNUM - nextCount; i++) {
     if (
       today.getDate() == dates[i] &&
       today.getMonth() == curDate.getMonth() &&
@@ -59,7 +60,7 @@ function buildCalender() {
       htmlDates += `<div class="date">${dates[i]}</div>`;
     }
   }
-  for (let i = DISPLAYNUM - prevCount - nextCount; i < DISPLAYNUM; i++) {
+  for (let i = DISPLAYNUM - nextCount; i < DISPLAYNUM; i++) {
     htmlDates += `<div class="date nextMonth">${dates[i]}</div>`;
   }
   document.querySelector(".dates").innerHTML = htmlDates;
