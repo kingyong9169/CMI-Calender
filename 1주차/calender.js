@@ -1,3 +1,4 @@
+const DISPLAYNUM = 35;
 let curDate = new Date();
 let today = new Date();
 buildCalender();
@@ -47,7 +48,7 @@ function buildCalender() {
   for (let i = 0; i < prevCount; i++) {
     htmlDates += `<div class="date prevMonth">${dates[i]}</div>`;
   }
-  for (let i = prevCount; i < 35 - prevCount - nextCount; i++) {
+  for (let i = prevCount; i < DISPLAYNUM - prevCount - nextCount; i++) {
     if (
       today.getDate() == dates[i] &&
       today.getMonth() == curDate.getMonth() &&
@@ -58,7 +59,7 @@ function buildCalender() {
       htmlDates += `<div class="date">${dates[i]}</div>`;
     }
   }
-  for (let i = 35 - prevCount - nextCount; i < 35; i++) {
+  for (let i = DISPLAYNUM - prevCount - nextCount; i < DISPLAYNUM; i++) {
     htmlDates += `<div class="date nextMonth">${dates[i]}</div>`;
   }
   document.querySelector(".dates").innerHTML = htmlDates;
