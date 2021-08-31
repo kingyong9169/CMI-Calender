@@ -1,0 +1,125 @@
+:root {
+    --bg: #f6f6ef; /*배경색*/
+    --line: #aaaaaa; /*상단과 하단을 나눠줄 줄 색*/
+    --sat: #8282ff; /*토요일 배경색*/
+    --sun: #ff88a7; /*일요일 배경색*/
+    --today: #ffb900; /*오늘 날짜의 테투리색*/
+    --font: "Lobster", cursive; /*폰트 정의*/
+  }
+  
+  body {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    top: 50%;
+    transform: translateY(50%);
+    background-color: #c1aeee;
+    font-family: var(--font);
+  }
+  
+  .calenderTitle {
+    font-size: 4rem;
+    color: var(--bg);
+  }
+  
+  .calender {
+    font-size: 1.3rem;
+    margin-top: 1rem;
+  }
+  
+  .header {
+    justify-content: center;
+    margin: auto;
+    display: flex;
+  }
+  
+  .title {
+    color: var(--bg);
+    text-align: center;
+    width: 10rem;
+    margin: auto 2rem;
+  }
+  .year {
+    display: inline;
+    margin-left: 0.3rem;
+  }
+  
+  .month {
+    display: inline;
+    margin-right: 0.3rem;
+  }
+  
+  .main {
+    background-color: var(--bg);
+    width: 40rem;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .days {
+    padding: auto;
+    height: 3.5rem;
+    border-bottom: 2px solid var(--line);
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  
+  .day {
+    padding: 1rem;
+    margin: 0;
+    width: calc(100% / 7);
+    display: inline;
+    box-sizing: border-box;
+    border-right: 1px solid var(--line);
+    border-top: 1px solid var(--line);
+  }
+  
+  .dates {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .date {
+    padding: 1rem 0;
+    width: calc(100% / 7);
+    text-align: center;
+    box-sizing: border-box;
+    border-right: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  
+  .date:nth-child(7n),
+  .day:nth-child(7n) {
+    color: var(--sat);
+  }
+  
+  .date:nth-child(7n + 1),
+  .day:nth-child(7n + 1) {
+    color: var(--sun);
+    border-left: 1px solid var(--line);
+  }
+  
+  .today {
+    background-origin: border-box;
+    background-color: var(--today);
+  }
+  
+  .prev,
+  .next {
+    color: var(--bg);
+    padding: auto;
+    font-size: 2rem;
+    border: none;
+    outline: none;
+    background-color: transparent;
+  }
+  
+  .prevMonth,
+  .nextMonth {
+    color: var(--line) !important;
+  }
+  
