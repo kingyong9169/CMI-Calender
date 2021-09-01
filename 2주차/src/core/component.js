@@ -1,14 +1,20 @@
 export default class Component {
   $target; // target
+  $props;
   $state; // 변화 감지
-  constructor($target, $props, state) {
+  constructor($target) {
     // target에 해당하는 것에 대한 생성자 함수
     this.$target = $target;
+    this.$props = $props;
     this.setup();
+    this.setEvent();
     this.render();
   }
   setup() {
     // 오버라이딩
+  }
+  mounted() { // render 이후 추가 기능
+
   }
   template() {
     // 새로 렌더링 될 html 부분
