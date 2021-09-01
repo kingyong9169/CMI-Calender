@@ -29,6 +29,7 @@ function buildCalender() {
   let dates = [];
   let prevCount = 0;
   let nextCount = 0;
+  let htmlDates = "";
   if (curFirst.getDay() != 0) {
     // 이번달 1일이 일요일이 아니면
     for (let i = 0; i < curFirst.getDay(); i++) {
@@ -45,8 +46,6 @@ function buildCalender() {
     dates.push(i);
     nextCount += 1;
   }
-
-  let htmlDates = "";
 
   for (let i = 0; i < prevCount; i++) {
     htmlDates += `<li class="date prevMonth">${dates[i]}</li>`;
