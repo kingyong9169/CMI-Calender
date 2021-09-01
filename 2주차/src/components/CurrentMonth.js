@@ -1,7 +1,7 @@
 import { htmlDom } from "../utils/htmlDom.js";
 import { dateToMonth } from "../utils/dateToMonth.js";
 
-export default class CalenderHeader {
+export default class CalenderMonth {
   $target; // target
   $state; // 변화 감지
   constructor({ $target, $parent, $state }) {
@@ -37,11 +37,9 @@ export default class CalenderHeader {
 
   render() {
     // state변경 혹은 이벤트 발생 시 template에 있는 내용으로 다시 렌더링
+    const { monthNames, curDate } = this.$state;
     this.$target.innerHTML = this.template();
-    this.$target.textContent = dateToMonth(
-      this.$state.monthNames,
-      this.$state.curDate
-    );
+    this.$target.textContent = dateToMonth(monthNames, curDate);
     this.setEvent();
   }
 }

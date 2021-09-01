@@ -31,16 +31,17 @@ export default class CalenderHeader {
     // 상태를 사용하는 컴포넌트에게 변경되었다는 것을 알려야 함.
     // 나중에 스토어로 리팩토링
     // 오버라이딩
+    const { curDate } = this.$state;
     const $prev = this.$target.querySelector(".prev");
     const $next = this.$target.querySelector(".next");
 
     $prev.addEventListener("click", () => {
-      this.$state.curDate.setMonth(this.$state.curDate.getMonth() - 1);
+      curDate.setMonth(curDate.getMonth() - 1);
       this.setState();
     });
 
     $next.addEventListener("click", () => {
-      this.$state.curDate.setMonth(this.$state.curDate.getMonth() + 1);
+      curDate.setMonth(curDate.getMonth() + 1);
       this.setState();
     });
   }

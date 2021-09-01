@@ -14,6 +14,7 @@ export default class Calender {
   }
   setup() {
     // 오버라이딩
+    const { curDate } = this.$state;
     const newState = {
       monthNames: [
         "January",
@@ -29,21 +30,9 @@ export default class Calender {
         "November",
         "December",
       ],
-      prevLast: new Date(
-        this.$state.curDate.getFullYear(),
-        this.$state.curDate.getMonth(),
-        0
-      ), // 저번달 말일을 저장
-      curFirst: new Date(
-        this.$state.curDate.getFullYear(),
-        this.$state.curDate.getMonth(),
-        1
-      ), // 이번달 1일을 저장
-      curLast: new Date(
-        this.$state.curDate.getFullYear(),
-        this.$state.curDate.getMonth() + 1,
-        0
-      ), // 이번달 말일을 저장 };
+      prevLast: new Date(curDate.getFullYear(), curDate.getMonth(), 0), // 저번달 말일을 저장
+      curFirst: new Date(curDate.getFullYear(), curDate.getMonth(), 1), // 이번달 1일을 저장
+      curLast: new Date(curDate.getFullYear(), curDate.getMonth() + 1, 0), // 이번달 말일을 저장 };
     };
     this.$state = { ...this.$state, ...newState };
   }
