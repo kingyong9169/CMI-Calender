@@ -33,20 +33,11 @@ body {
   display: flex;
 }
 
-.title {
+.currentMonth {
   color: var(--bg);
   text-align: center;
   width: 10rem;
   margin: auto 2rem;
-}
-.year {
-  display: inline;
-  margin-left: 0.3rem;
-}
-
-.month {
-  display: inline;
-  margin-right: 0.3rem;
 }
 
 .main {
