@@ -1,6 +1,7 @@
 import CalenderHeader from "./CalenderHeader.js";
 import CalenderMain from "./CalenderMain.js";
 import { htmlDom } from "../utils/htmlDom.js";
+import { store } from "../store/store.js";
 export default class Calender {
   $target; // target
   $state = {}; // 변화 감지
@@ -12,29 +13,9 @@ export default class Calender {
     this.setup();
     this.render();
   }
+
   setup() {
     // 오버라이딩
-    const { curDate } = this.$state;
-    const newState = {
-      monthNames: [
-        "January",
-        "February",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July",
-        "August",
-        "September",
-        "October",
-        "November",
-        "December",
-      ],
-      prevLast: new Date(curDate.getFullYear(), curDate.getMonth(), 0), // 저번달 말일을 저장
-      curFirst: new Date(curDate.getFullYear(), curDate.getMonth(), 1), // 이번달 1일을 저장
-      curLast: new Date(curDate.getFullYear(), curDate.getMonth() + 1, 0), // 이번달 말일을 저장 };
-    };
-    this.$state = { ...this.$state, ...newState };
   }
 
   template() {
@@ -55,8 +36,8 @@ export default class Calender {
     // state변경 혹은 이벤트 발생 시 template에 있는 내용으로 다시 렌더링
     this.$target.innerHTML = this.template();
 
-    new CalenderHeader({ $parent: this.$target, $state: this.$state });
-    new CalenderMain({ $parent: this.$target, $state: this.$state });
+    new CalenderHeader({ $parent: this.$target });
+    new CalenderMain({ $parent: this.$target });
     this.setEvent();
   }
 }

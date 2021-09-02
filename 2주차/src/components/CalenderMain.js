@@ -45,7 +45,7 @@ export default class CalenderMain {
     // state변경 혹은 이벤트 발생 시 template에 있는 내용으로 다시 렌더링
     this.$target.innerHTML = this.template();
     const $dates = this.$target.querySelector(".dates");
-    new CalenderDates({ $target: $dates, $state: this.$state });
+    new CalenderDates({ $target: $dates });
     this.setEvent();
   }
 }

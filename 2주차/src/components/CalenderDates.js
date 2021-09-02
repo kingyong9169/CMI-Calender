@@ -1,6 +1,6 @@
-import CurrentMonth from "./CurrentMonth.js";
 import { htmlDom } from "../utils/htmlDom.js";
-
+import { store } from "../store/store.js";
+import { observe, observable } from "../core/observer.js";
 export default class CalenderDates {
   $target; // target
   $state; // 변화 감지
@@ -9,12 +9,17 @@ export default class CalenderDates {
     this.$target = $target ? $target : htmlDom(`<ul class="dates"></ul>`);
     if (!$target) $parent.appendChild(this.$target);
     this.$state = $state;
-    console.log($state);
     this.setup();
     this.render();
   }
   setup() {
     // 오버라이딩
+    this.$state = observable(store.getState());
+    observe(() => {
+      // this.setState({ curDate: state.curDate });
+      this.render();
+      this.setEvent();
+    });
   }
 
   template() {
@@ -36,7 +41,7 @@ export default class CalenderDates {
     this.$target.innerHTML = this.template();
 
     const { DISPLAYNUM, curDate, curFirst, curLast, prevLast, today } =
-      this.$state;
+      store.getState();
 
     let dates = [];
     let prevCount = 0;

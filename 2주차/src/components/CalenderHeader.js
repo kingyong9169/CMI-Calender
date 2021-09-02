@@ -1,5 +1,7 @@
 import CurrentMonth from "./CurrentMonth.js";
 import { htmlDom } from "../utils/htmlDom.js";
+import { prev, next, store } from "../store/store.js";
+import { observe, observable } from "../core/observer.js";
 
 export default class CalenderHeader {
   $target; // target
@@ -16,6 +18,12 @@ export default class CalenderHeader {
   }
   setup() {
     // 오버라이딩
+    this.$state = observable(store.getState());
+    observe(() => {
+      // this.setState({ curDate: state.curDate });
+      this.render();
+      this.setEvent();
+    });
   }
 
   template() {
@@ -36,13 +44,16 @@ export default class CalenderHeader {
     const $next = this.$target.querySelector(".next");
 
     $prev.addEventListener("click", () => {
-      curDate.setMonth(curDate.getMonth() - 1);
-      this.setState();
+      store.dispatch(prev(curDate.getMonth() - 1));
+      // store.commit("prev", curDate.getMonth() - 1);
+      // this.setState();
     });
 
     $next.addEventListener("click", () => {
-      curDate.setMonth(curDate.getMonth() + 1);
-      this.setState();
+      console.log(next(curDate.getMonth() + 1));
+      store.dispatch(next(curDate.getMonth() + 1));
+      // store.commit("next", curDate.getMonth() + 1);
+      // this.setState();
     });
   }
 
@@ -55,7 +66,7 @@ export default class CalenderHeader {
     // state변경 혹은 이벤트 발생 시 template에 있는 내용으로 다시 렌더링
     this.$target.innerHTML = this.template();
     const $header = this.$target.querySelector(".currentMonth");
-    new CurrentMonth({ $target: $header, $state: this.$state });
+    new CurrentMonth({ $target: $header });
     this.setEvent();
   }
 }

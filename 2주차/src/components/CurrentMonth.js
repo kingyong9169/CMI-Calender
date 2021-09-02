@@ -1,5 +1,7 @@
 import { htmlDom } from "../utils/htmlDom.js";
 import { dateToMonth } from "../utils/dateToMonth.js";
+import { store } from "../store/store.js";
+import { observe, observable } from "../core/observer.js";
 
 export default class CalenderMonth {
   $target; // target
@@ -17,6 +19,12 @@ export default class CalenderMonth {
   }
   setup() {
     // 오버라이딩
+    this.$state = observable(store.getState());
+    observe(() => {
+      // this.setState({ curDate: state.curDate });
+      this.render();
+      this.setEvent();
+    });
   }
 
   template() {
@@ -37,7 +45,7 @@ export default class CalenderMonth {
 
   render() {
     // state변경 혹은 이벤트 발생 시 template에 있는 내용으로 다시 렌더링
-    const { monthNames, curDate } = this.$state;
+    const { monthNames, curDate } = store.getState();
     this.$target.innerHTML = this.template();
     this.$target.textContent = dateToMonth(monthNames, curDate);
     this.setEvent();
