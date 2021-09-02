@@ -2,19 +2,27 @@ export default class Component {
   $target; // target
   $props;
   $state; // 변화 감지
-  constructor($target) {
+  constructor($target, $props) {
     // target에 해당하는 것에 대한 생성자 함수
     this.$target = $target;
     this.$props = $props;
     this.setup();
-    this.setEvent();
-    this.render();
   }
   setup() {
     // 오버라이딩
+    this.state = observable(this.initState()); // state를 관찰한다.
+    observe(() => {
+      // state가 변경될 경우, 함수가 실행된다.
+      this.render();
+      this.setEvent();
+      this.mounted();
+    });
   }
-  mounted() { // render 이후 추가 기능
-
+  mounted() {
+    // render 이후 추가 기능
+  }
+  initState() {
+    // 초기 상태
   }
   template() {
     // 새로 렌더링 될 html 부분
