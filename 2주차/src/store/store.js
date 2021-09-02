@@ -49,17 +49,17 @@ export const store = createStore(
     // console.log(state.curDate.setMonth(action.payload));
     switch (action.type) {
       case "PREV":
-        console.log(state.curDate.setMonth(action.payload));
+        state.curDate.setMonth(action.payload);
         return {
           ...state,
-          curDate: state.curDate.setMonth(action.payload),
+          curDate: state.curDate,
         };
       case "NEXT":
+        state.curDate.setMonth(action.payload);
         console.log(state.curDate);
-        console.log(state.curDate.setMonth(action.payload));
         return {
           ...state,
-          curDate: state.curDate.setMonth(action.payload),
+          curDate: state.curDate,
         };
       default:
         return state;
