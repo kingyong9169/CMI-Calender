@@ -57,35 +57,33 @@ const changeFinal = (state) => {
   );
 };
 
-// dispatch에서 사용될 type들을 정의해준다.
+// reducer에서 사용될 action을 정의해준다.
 export const PREV = "PREV";
 export const NEXT = "NEXT";
 
-// reducer를 정의하여 store에 넘겨준다.
-export const store = createStore(
-  (state = { ...initState, ...finalState }, action = {}) => {
-    // const pre = state.curDate;
-    switch (action.type) {
-      case "PREV":
-        state.curDate = new Date(initState.curDate.setMonth(action.payload));
-        changeFinal(state);
-        return {
-          ...state,
-          curDate: state.curDate,
-        };
-      case "NEXT":
-        state.curDate = new Date(initState.curDate.setMonth(action.payload));
-        changeFinal(state);
-        return {
-          ...state,
-          curDate: state.curDate,
-        };
-      default:
-        return state;
-    }
+// reducer
+const reducer = (state = { ...initState, ...finalState }, action = {}) => {
+  switch (action.type) {
+    case "PREV":
+      state.curDate = new Date(initState.curDate.setMonth(action.payload));
+      changeFinal(state);
+      return {
+        ...state,
+        curDate: state.curDate,
+      };
+    case "NEXT":
+      state.curDate = new Date(initState.curDate.setMonth(action.payload));
+      changeFinal(state);
+      return {
+        ...state,
+        curDate: state.curDate,
+      };
+    default:
+      return state;
   }
-);
+};
 
-// reducer에서 사용될 action을 정의해준다.
+export const store = createStore(reducer);
+
 export const prev = (payload) => ({ type: PREV, payload });
 export const next = (payload) => ({ type: NEXT, payload });
