@@ -1,7 +1,7 @@
 import CurrentMonth from "./CurrentMonth.js";
 import { htmlDom } from "../utils/htmlDom.js";
 import { prev, next, store } from "../store/store.js";
-import { observe, observable } from "../core/observer.js";
+import { observe } from "../core/observer.js";
 
 export default class CalenderHeader {
   $target; // target
@@ -18,42 +18,30 @@ export default class CalenderHeader {
   }
   setup() {
     // 오버라이딩
-    this.$state = observable(store.getState());
-    observe(() => {
-      // this.setState({ curDate: state.curDate });
-      this.render();
-      this.setEvent();
-    });
   }
 
   template() {
     // 새로 렌더링 될 html 부분
     return `
-        <button class="prev" onclick="prev()"><i class="far fa-arrow-alt-circle-left"></i></button>
+        <button class="prev"><i class="far fa-arrow-alt-circle-left"></i></button>
         <div class="currentMonth"></div>
-        <button class="next" onclick="next()"><i class="far fa-arrow-alt-circle-right"></i></button>
+        <button class="next"><i class="far fa-arrow-alt-circle-right"></i></button>
     `;
   }
 
   setEvent() {
     // 상태를 사용하는 컴포넌트에게 변경되었다는 것을 알려야 함.
-    // 나중에 스토어로 리팩토링
     // 오버라이딩
-    const { curDate } = this.$state;
+    const { curDate } = store.getState();
     const $prev = this.$target.querySelector(".prev");
     const $next = this.$target.querySelector(".next");
 
     $prev.addEventListener("click", () => {
       store.dispatch(prev(curDate.getMonth() - 1));
-      // store.commit("prev", curDate.getMonth() - 1);
-      // this.setState();
     });
 
     $next.addEventListener("click", () => {
-      console.log(next(curDate.getMonth() + 1));
       store.dispatch(next(curDate.getMonth() + 1));
-      // store.commit("next", curDate.getMonth() + 1);
-      // this.setState();
     });
   }
 

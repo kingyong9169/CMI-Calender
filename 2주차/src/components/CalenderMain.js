@@ -1,5 +1,6 @@
 import CalenderDates from "./CalenderDates.js";
 import { htmlDom } from "../utils/htmlDom.js";
+import { store } from "../store/store.js";
 
 export default class CalenderMain {
   $target; // target

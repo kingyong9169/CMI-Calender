@@ -11,19 +11,15 @@ export default class CalenderMonth {
     this.$target = $target
       ? $target
       : htmlDom(`<div class="currentMonth"></div>`);
-    console.log(this.$target);
     if (!$target) $parent.appendChild(this.$target);
     this.$state = $state;
     this.setup();
-    this.render();
   }
   setup() {
     // 오버라이딩
-    this.$state = observable(store.getState());
     observe(() => {
-      // this.setState({ curDate: state.curDate });
+      console.log("CurrentMonth");
       this.render();
-      this.setEvent();
     });
   }
 
@@ -45,9 +41,10 @@ export default class CalenderMonth {
 
   render() {
     // state변경 혹은 이벤트 발생 시 template에 있는 내용으로 다시 렌더링
-    const { monthNames, curDate } = store.getState();
     this.$target.innerHTML = this.template();
+    const { monthNames, curDate } = store.getState();
     this.$target.textContent = dateToMonth(monthNames, curDate);
+    console.log("month", curDate);
     this.setEvent();
   }
 }

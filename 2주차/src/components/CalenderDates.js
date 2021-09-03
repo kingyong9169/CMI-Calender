@@ -1,6 +1,6 @@
 import { htmlDom } from "../utils/htmlDom.js";
 import { store } from "../store/store.js";
-import { observe, observable } from "../core/observer.js";
+import { observe } from "../core/observer.js";
 export default class CalenderDates {
   $target; // target
   $state; // 변화 감지
@@ -10,15 +10,12 @@ export default class CalenderDates {
     if (!$target) $parent.appendChild(this.$target);
     this.$state = $state;
     this.setup();
-    this.render();
   }
   setup() {
     // 오버라이딩
-    this.$state = observable(store.getState());
     observe(() => {
-      // this.setState({ curDate: state.curDate });
+      console.log("CalenderDates");
       this.render();
-      this.setEvent();
     });
   }
 
