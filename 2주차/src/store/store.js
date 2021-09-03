@@ -39,6 +39,24 @@ const finalState = {
   ), // 이번달 말일을 저장 };
 };
 
+const changeFinal = (state) => {
+  state.prevLast = new Date(
+    state.curDate.getFullYear(),
+    state.curDate.getMonth(),
+    0
+  );
+  state.curFirst = new Date(
+    state.curDate.getFullYear(),
+    state.curDate.getMonth(),
+    1
+  );
+  state.curLast = new Date(
+    state.curDate.getFullYear(),
+    state.curDate.getMonth() + 1,
+    0
+  );
+};
+
 // dispatch에서 사용될 type들을 정의해준다.
 export const PREV = "PREV";
 export const NEXT = "NEXT";
@@ -46,17 +64,18 @@ export const NEXT = "NEXT";
 // reducer를 정의하여 store에 넘겨준다.
 export const store = createStore(
   (state = { ...initState, ...finalState }, action = {}) => {
-    // console.log(state.curDate.setMonth(action.payload));
+    // const pre = state.curDate;
     switch (action.type) {
       case "PREV":
-        state.curDate.setMonth(action.payload);
+        state.curDate = new Date(initState.curDate.setMonth(action.payload));
+        changeFinal(state);
         return {
           ...state,
           curDate: state.curDate,
         };
       case "NEXT":
-        state.curDate.setMonth(action.payload);
-        console.log(state.curDate);
+        state.curDate = new Date(initState.curDate.setMonth(action.payload));
+        changeFinal(state);
         return {
           ...state,
           curDate: state.curDate,
