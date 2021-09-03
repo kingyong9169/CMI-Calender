@@ -19,8 +19,10 @@ export const observable = (obj) => {
       },
 
       set(value) {
-        if (_value === value) return;
-        if (JSON.stringify(_value) === JSON.stringify(value)) return;
+        console.log(key, !value.getMonth, value === _value);
+        if (!value.getMonth && _value === value) return;
+        if (!value.getMonth && JSON.stringify(_value) === JSON.stringify(value))
+          return;
         _value = value;
         observers.forEach((fn) => fn());
       },
