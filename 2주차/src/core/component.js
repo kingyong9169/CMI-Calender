@@ -7,6 +7,8 @@ export default class Component {
     this.$target = $target;
     this.$props = $props;
     this.setup();
+    this.setEvent();
+    this.render();
   }
   setup() {
     // 오버라이딩
@@ -14,7 +16,6 @@ export default class Component {
     observe(() => {
       // state가 변경될 경우, 함수가 실행된다.
       this.render();
-      this.setEvent();
       this.mounted();
     });
   }
@@ -31,7 +32,6 @@ export default class Component {
   render() {
     // state변경 혹은 이벤트 발생 시 template에 있는 내용으로 다시 렌더링
     this.$target.innerHTML = this.template();
-    this.setEvent();
   }
   setEvent() {
     // 오버라이딩

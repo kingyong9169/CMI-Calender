@@ -35,6 +35,7 @@ export default class CalenderDates {
   }
 
   render() {
+    // 로직 분리
     this.$target.innerHTML = this.template();
 
     const { DISPLAYNUM, curDate, curFirst, curLast, prevLast, today } =

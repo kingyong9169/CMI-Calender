@@ -25,7 +25,7 @@ export const observable = (obj) => {
       return target[name];
     },
     set(target, name, value) {
-      console.log(name, !value.getMonth, target[name] === value);
+      // getMonth 없애는 것을 고려
       if (!value.getMonth && target[name] === value) return true;
       if (
         !value.getMonth &&

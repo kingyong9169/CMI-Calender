@@ -65,6 +65,9 @@ export const NEXT = "NEXT";
 const reducer = (state = { ...initState, ...finalState }, action = {}) => {
   switch (action.type) {
     case "PREV":
+      //   let tmp = new Date(initState.curDate);
+      //   tmp.setMonth(action.payload);
+      //   state.curDate = tmp;
       state.curDate = new Date(initState.curDate.setMonth(action.payload));
       changeFinal(state);
       return {
@@ -72,6 +75,9 @@ const reducer = (state = { ...initState, ...finalState }, action = {}) => {
         curDate: state.curDate,
       };
     case "NEXT":
+      //   let tp = new Date(initState.curDate);
+      //   tp.setMonth(action.payload);
+      //   state.curDate = tp;
       state.curDate = new Date(initState.curDate.setMonth(action.payload));
       changeFinal(state);
       return {

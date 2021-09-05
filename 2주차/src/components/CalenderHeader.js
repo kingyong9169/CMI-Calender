@@ -1,7 +1,6 @@
 import CurrentMonth from "./CurrentMonth.js";
 import { htmlDom } from "../utils/htmlDom.js";
 import { prev, next, store } from "../store/store.js";
-import { observe } from "../core/observer.js";
 
 export default class CalenderHeader {
   $target; // target
