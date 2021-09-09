@@ -4,10 +4,8 @@ import StyledApp from "./styles/style";
 function App() {
   return (
     <StyledApp>
-      <div className="App">
-        <header className="calenderTitle">Calender</header>
-        <Calender />
-      </div>
+      <header className="calenderTitle">Calender</header>
+      <Calender />
     </StyledApp>
   );
 }
