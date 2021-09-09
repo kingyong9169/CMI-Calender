@@ -2,47 +2,15 @@ import { createGlobalStyle } from "styled-components";
 import reset from "styled-reset";
 
 const GlobalStyle = createGlobalStyle`
-    @font-face {
-        font-family: 'NanumBarunGothic';
-        font-style: normal;
-        font-weight: 400;
-        src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot');
-        src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.eot?#iefix')
-            format('embedded-opentype'),
-            url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.woff')
-            format('woff'),
-            url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWeb.ttf')
-            format('truetype');
-    }
-    @font-face {
-        font-family: 'NanumBarunGothic';
-        font-style: normal;
-        font-weight: 700;
-        src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.eot');
-        src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.eot?#iefix')
-            format('embedded-opentype'),
-            url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.woff')
-            format('woff'),
-            url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebBold.ttf')
-            format('truetype');
-    }
-    @font-face {
-        font-family: 'NanumBarunGothic';
-        font-style: normal;
-        font-weight: 300;
-        src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.eot');
-        src: url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.eot?#iefix')
-            format('embedded-opentype'),
-            url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.woff')
-            format('woff'),
-            url('//cdn.jsdelivr.net/font-nanumlight/1.0/NanumBarunGothicWebLight.ttf')
-            format('truetype');
-    }
-    * {
-        font-family: 'NanumBarunGothic', sans-serif !important;
-        line-height: normal;
-    }
     ${reset}
+    :root {
+        --bg: #f6f6ef; /*배경색*/
+        --line: #aaaaaa; /*상단과 하단을 나눠줄 줄 색*/
+        --sat: #8282ff; /*토요일 배경색*/
+        --sun: #ff88a7; /*일요일 배경색*/
+        --today: #ffb900; /*오늘 날짜의 테투리색*/
+        --font: "Lobster", cursive; /*폰트 정의*/
+    }
     html,
     body,
     div,
@@ -184,14 +152,6 @@ const GlobalStyle = createGlobalStyle`
     background-color: transparent;
     cursor: pointer;
     }
-    :root {
-        --bg: #f6f6ef; /*배경색*/
-        --line: #aaaaaa; /*상단과 하단을 나눠줄 줄 색*/
-        --sat: #8282ff; /*토요일 배경색*/
-        --sun: #ff88a7; /*일요일 배경색*/
-        --today: #ffb900; /*오늘 날짜의 테투리색*/
-        --font: "Lobster", cursive; /*폰트 정의*/
-      }
     body {
         align-items: center;
         display: flex;
