@@ -19,6 +19,16 @@ const CalenderDates = styled.ul`
       color: var(--sun);
       border-left: 1px solid var(--line);
     }
+    .today {
+        background-origin: border-box;
+        background-color: var(--today);
+    }
+    .prevMonth {
+        color: var(--line) !important;
+    }
+    .nextMonth {
+        color: var(--line) !important;
+    }
 `;
 
 export default CalenderDates;

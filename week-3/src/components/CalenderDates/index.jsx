@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useContext } from "react";
 import { CalenderContext } from "../Calender";
 import StyledCalenderDates from "./style";
-import PrevMonth from "./PrevMonth";
-import Dates from "./Dates";
-import NextMonth from "./NextMonth";
+import PrevMonth from "./prevMonth.js";
+import Dates from "./dates.js";
+import NextMonth from "./nextMonth.js";
 
 export default function CalenderDates() {
   const Calender = useContext(CalenderContext);
