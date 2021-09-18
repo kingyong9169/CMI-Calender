@@ -39,6 +39,9 @@ export default function CalenderDates() {
         <PrevMonth key={index} prev={prev}></PrevMonth>
       ))}
       {dates.map((dates, index) => {
+        toDay = false;
+        sun = false;
+        sat = false;
         if (
           today.getDate() === dates &&
           today.getMonth() === curDate.getMonth() &&
@@ -47,14 +50,10 @@ export default function CalenderDates() {
           toDay = true;
         } else if ((prev.length + index + 1) % 7 === 0) {
           // 일요일
-          sun = true;
+          sat = true;
         } else if ((prev.length + index + 1) % 7 === 1) {
           // 토요일
-          sat = true;
-        } else {
-          toDay = false;
-          sun = false;
-          sat = false;
+          sun = true;
         }
         return (
           <Dates key={index} date={dates} today={toDay} sat={sat} sun={sun} />

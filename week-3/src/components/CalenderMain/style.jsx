@@ -25,11 +25,11 @@ const CalenderMain = styled.main`
       border-top: 1px solid ${line};
     }
     .day:nth-child(7n + 1) {
-      color: ${sat};
+      color: ${sun};
       border-left: 1px solid ${line};
     }
     .day:nth-child(7n) {
-      color: ${sun};
+      color: ${sat};
     }
   }
 `;
