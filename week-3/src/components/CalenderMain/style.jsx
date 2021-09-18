@@ -1,7 +1,8 @@
 import styled from "styled-components";
+import { bg, line, sat, sun, today } from "../../styles/color.js";
 
 const CalenderMain = styled.main`
-  background-color: var(--bg);
+  background-color: ${bg};
   width: 40rem;
   margin-top: 1rem;
   display: flex;
@@ -9,7 +10,7 @@ const CalenderMain = styled.main`
   .days {
     padding: auto;
     height: 3.5rem;
-    border-bottom: 2px solid var(--line);
+    border-bottom: 2px solid ${line};
     text-align: center;
     display: flex;
     flex-wrap: wrap;
@@ -20,15 +21,15 @@ const CalenderMain = styled.main`
       width: calc(100% / 7);
       display: inline;
       box-sizing: border-box;
-      border-right: 1px solid var(--line);
-      border-top: 1px solid var(--line);
+      border-right: 1px solid ${line};
+      border-top: 1px solid ${line};
     }
     .day:nth-child(7n + 1) {
-      color: var(--sun);
-      border-left: 1px solid var(--line);
+      color: ${sat};
+      border-left: 1px solid ${line};
     }
     .day:nth-child(7n) {
-      color: var(--sat);
+      color: ${sun};
     }
   }
 `;

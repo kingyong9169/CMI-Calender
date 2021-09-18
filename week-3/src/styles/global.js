@@ -3,14 +3,6 @@ import reset from "styled-reset";
 
 const GlobalStyle = createGlobalStyle`
     ${reset}
-    :root {
-        --bg: #f6f6ef; /*배경색*/
-        --line: #aaaaaa; /*상단과 하단을 나눠줄 줄 색*/
-        --sat: #8282ff; /*토요일 배경색*/
-        --sun: #ff88a7; /*일요일 배경색*/
-        --today: #ffb900; /*오늘 날짜의 테투리색*/
-        --font: "Lobster", cursive; /*폰트 정의*/
-    }
     html,
     body,
     div,
@@ -159,7 +151,7 @@ const GlobalStyle = createGlobalStyle`
         top: 50%;
         transform: translateY(50%);
         background-color: #c1aeee;
-        font-family: var(--font);
+        font-family: "Lobster", cursive;
     }
 `;
 
