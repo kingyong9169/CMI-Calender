@@ -14,6 +14,10 @@ export default function CalenderDates() {
   const dates = [];
   const next = [];
 
+  let toDay = false;
+  let sat = false;
+  let sun = false;
+
   if (curFirst.getDay() !== 0) {
     // 이번달 1일이 일요일이 아니면
     for (let i = 0; i < curFirst.getDay(); i++) {
@@ -39,11 +43,22 @@ export default function CalenderDates() {
           today.getDate() === dates &&
           today.getMonth() === curDate.getMonth() &&
           today.getFullYear() === curDate.getFullYear()
-        )
-          return <Dates key={index} date={dates} today={true} />;
-        else {
-          return <Dates key={index} date={dates} today={false} />;
+        ) {
+          toDay = true;
+        } else if ((prev.length + index + 1) % 7 === 0) {
+          // 일요일
+          sun = true;
+        } else if ((prev.length + index + 1) % 7 === 1) {
+          // 토요일
+          sat = true;
+        } else {
+          toDay = false;
+          sun = false;
+          sat = false;
         }
+        return (
+          <Dates key={index} date={dates} today={toDay} sat={sat} sun={sun} />
+        );
       })}
       {next.map((next, index) => (
         <NextMonth key={index} next={next}></NextMonth>
