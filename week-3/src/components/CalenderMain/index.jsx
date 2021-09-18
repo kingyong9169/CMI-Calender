@@ -3,16 +3,15 @@ import CalenderDates from "../CalenderDates";
 import StyledCalenderMain from "./style";
 
 export default function CalenderMain() {
+  const day = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   return (
     <StyledCalenderMain>
       <ul className="days">
-        <li className="day">Sun</li>
-        <li className="day">Mon</li>
-        <li className="day">Tue</li>
-        <li className="day">Wed</li>
-        <li className="day">Thu</li>
-        <li className="day">Fri</li>
-        <li className="day">Sat</li>
+        {day.map((day, index) => (
+          <li key={day} className="day">
+            {day}
+          </li>
+        ))}
       </ul>
       <CalenderDates />
     </StyledCalenderMain>
