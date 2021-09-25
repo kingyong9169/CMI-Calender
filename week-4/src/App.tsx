@@ -1,13 +1,13 @@
-import Calender from "./components/Calender";
-import StyledApp from "./styles/style";
+import Calender from './components/Calender';
+import StyledApp from './styles/style';
 
-function App() {
+const App: React.FC = () => {
   return (
     <StyledApp>
       <header className="calenderTitle">Calender</header>
       <Calender />
     </StyledApp>
   );
-}
+};
 
 export default App;

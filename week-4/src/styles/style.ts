@@ -1,11 +1,11 @@
-import styled from "styled-components";
-import { bg, line, sat, sun, today } from "./color.js";
+import styled from 'styled-components';
+import { CSSColors } from './color';
 
 const App = styled.div`
   .calenderTitle {
     text-align: center;
     font-size: 4rem;
-    color: ${bg};
+    color: ${CSSColors.bg};
   }
 `;
 

@@ -1,7 +1,17 @@
-import { createGlobalStyle } from "styled-components";
-import reset from "styled-reset";
+import { createGlobalStyle } from 'styled-components';
+import reset from 'styled-reset';
 
-const GlobalStyle = createGlobalStyle`
+interface CSSVariableType {
+  fontFamily: string;
+  backgroundColor: string;
+}
+
+export const CSSVariable: CSSVariableType = {
+  fontFamily: '"Lobster", cursive',
+  backgroundColor: '#c1aeee',
+};
+
+export const GlobalStyle = createGlobalStyle`
     ${reset}
     html,
     body,
@@ -150,8 +160,8 @@ const GlobalStyle = createGlobalStyle`
         flex-direction: column;
         top: 50%;
         transform: translateY(50%);
-        background-color: #c1aeee;
-        font-family: "Lobster", cursive;
+        background-color: ${CSSVariable.backgroundColor};
+        font-family: ${CSSVariable.fontFamily};
     }
 `;
 

@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { bg, line, sat, sun, today } from "../../styles/color.js";
+import styled from 'styled-components';
+import { CSSColors } from '../../styles/color';
 
 const CalenderHeader = styled.header`
   justify-content: center;
@@ -7,14 +7,14 @@ const CalenderHeader = styled.header`
   display: flex;
   .prev,
   .next {
-    color: ${bg};
+    color: ${CSSColors.bg};
     padding: auto;
     font-size: 2rem;
     border: none;
     outline: none;
   }
   .currentMonth {
-    color: ${bg};
+    color: ${CSSColors.bg};
     text-align: center;
     width: 10rem;
     margin: auto 2rem;
