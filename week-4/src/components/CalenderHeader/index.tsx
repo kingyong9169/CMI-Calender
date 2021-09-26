@@ -4,7 +4,7 @@ import StyledCalenderHeader from './style';
 import { prev, next } from '../../store/action';
 import { finalState } from '../../store/reducer';
 
-const CalenderHeader: React.FC = (): ReactElement => {
+export default function CalenderHeader(): ReactElement {
   const calender = useSelector((state: finalState) => state);
   const dispatch = useDispatch();
   const { monthNames, curDate }: finalState = calender;
@@ -29,6 +29,4 @@ const CalenderHeader: React.FC = (): ReactElement => {
       </button>
     </StyledCalenderHeader>
   );
-};
-
-export default CalenderHeader;
+}
