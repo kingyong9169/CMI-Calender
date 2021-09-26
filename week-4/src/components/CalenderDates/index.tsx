@@ -6,7 +6,7 @@ import Dates from './dates';
 import NextMonth from './nextMonth';
 import { finalState } from '../../store/reducer';
 
-const CalenderDates: React.FC = (): ReactElement => {
+export default function CalenderDates(): ReactElement {
   const calender = useSelector((state: finalState) => state);
   const {
     DISPLAYNUM,
@@ -70,6 +70,4 @@ const CalenderDates: React.FC = (): ReactElement => {
       ))}
     </StyledCalenderDates>
   );
-};
-
-export default CalenderDates;
+}

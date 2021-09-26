@@ -2,8 +2,6 @@ type NextProps = {
   next: number;
 };
 
-const NextMonth: React.FC<NextProps> = ({ next }: NextProps) => {
+export default function NextMonth({ next }: NextProps) {
   return <li className="date nextMonth">{next}</li>;
-};
-
-export default NextMonth;
+}

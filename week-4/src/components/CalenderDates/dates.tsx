@@ -5,7 +5,7 @@ type DateProps = {
   sun: boolean;
 };
 
-const Dates: React.FC<DateProps> = ({ date, today, sat, sun }: DateProps) => {
+export default function Dates({ date, today, sat, sun }: DateProps) {
   return (
     <li
       className={`date${today === true ? ' today' : ''}${
@@ -15,6 +15,4 @@ const Dates: React.FC<DateProps> = ({ date, today, sat, sun }: DateProps) => {
       {date}
     </li>
   );
-};
-
-export default Dates;
+}

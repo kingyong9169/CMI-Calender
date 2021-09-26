@@ -2,8 +2,6 @@ type PrevProps = {
   prev: number;
 };
 
-const PrevMonth: React.FC<PrevProps> = ({ prev }: PrevProps) => {
+export default function PrevMonth({ prev }: PrevProps) {
   return <li className="date prevMonth">{prev}</li>;
-};
-
-export default PrevMonth;
+}
