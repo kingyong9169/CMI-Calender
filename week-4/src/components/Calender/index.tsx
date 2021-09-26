@@ -3,13 +3,11 @@ import StyledCalender from './style';
 import CalenderHeader from '../CalenderHeader';
 import CalenderMain from '../CalenderMain';
 
-const Calender: React.FC = () => {
+export default function Calender() {
   return (
     <StyledCalender>
       <CalenderHeader />
       <CalenderMain />
     </StyledCalender>
   );
-};
-
-export default Calender;
+}
