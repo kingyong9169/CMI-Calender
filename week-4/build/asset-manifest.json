@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.js": "/CMI-Calender/week-4/static/js/main.4deeeecc.chunk.js",
+    "main.js.map": "/CMI-Calender/week-4/static/js/main.4deeeecc.chunk.js.map",
+    "runtime-main.js": "/CMI-Calender/week-4/static/js/runtime-main.5d05588b.js",
+    "runtime-main.js.map": "/CMI-Calender/week-4/static/js/runtime-main.5d05588b.js.map",
+    "static/js/2.71f99530.chunk.js": "/CMI-Calender/week-4/static/js/2.71f99530.chunk.js",
+    "static/js/2.71f99530.chunk.js.map": "/CMI-Calender/week-4/static/js/2.71f99530.chunk.js.map",
+    "index.html": "/CMI-Calender/week-4/index.html",
+    "static/js/2.71f99530.chunk.js.LICENSE.txt": "/CMI-Calender/week-4/static/js/2.71f99530.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5d05588b.js",
+    "static/js/2.71f99530.chunk.js",
+    "static/js/main.4deeeecc.chunk.js"
+  ]
+}
